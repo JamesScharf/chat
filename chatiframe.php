@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Chat</title>
-	
+
 
 
     <!-- Bootstrap -->
@@ -15,8 +15,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript"
-    src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+    <script type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js"></script>
+  	 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +31,7 @@
 		<?php
 		error_reporting(E_ERROR | E_PARSE); //Hide warnings and notices
 			include('dbforchat.php');
-				
+
 				$results = $mysqli->query("SELECT * FROM chat_record");
 				if($results) {
 					//echo 'rows ' . $results->num_rows . ' rows<br/><hr/>';
@@ -39,7 +40,7 @@
 						$row = $results->fetch_assoc();
 						//echo 'nickname: ' . $row['nickname'] . '<br/>';
 						//echo 'Message: ' . $row['message'] . '<br/>';
-						//echo 'message_id: ' . $row['message_id'] . '<br/><br/>'; 
+						//echo 'message_id: ' . $row['message_id'] . '<br/><br/>';
 						$dataUsername = $row['username'];
 						$dataMessage = $row['message'];
 						echo "
@@ -47,16 +48,9 @@
 								<li class='list-group-item list-group-item-danger'><b>$dataUsername:</b></br>$dataMessage</li>
 							</ul>
 							";
-						echo "<SCRIPT> var d = $('#div1'); d.scrollTop(d.prop('scrollHeight'));</SCRIPT>";
 					}
 				}
 		?>
-
-	
-    
-<SCRIPT>
-var d = $('#div1');
-d.scrollTop(d.prop("scrollHeight"));</SCRIPT>
 
   </body>
 </html>
